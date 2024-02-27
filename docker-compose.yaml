@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  pg_sannicollas:
+    container_name: pg_sannicollas
+    image: postgres:13.5
+    environment:
+      - POSTGRES_DB=sannicollas
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - sannicollas
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./config/data:/var/lib/postgresql/data
+
+  springboot:
+    build: 
+      context: ./sannicollas-api
+      dockerfile: Dockerfile
+    container_name: springboot
+    image: chrystiandeoliveira/springboot-sannicollas
+    networks:
+      - sannicollas
+    ports:
+      - "3000:3000"
+    depends_on:
+      - pg_sannicollas
+
+networks:
+  sannicollas:
+    driver: bridge

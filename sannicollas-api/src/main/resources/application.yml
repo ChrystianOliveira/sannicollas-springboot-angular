@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: sannicollas-backend
+  jpa:
+    hibernate:
+      ddl-auto: none
+  flyway:
+    default-schema: sannicollas
+  datasource:
+    url: jdbc:postgresql://pg_sannicollas:5432/sannicollas
+    username: postgres
+    password: postgres
+  h2:
+    console:
+      enabled: true
+
+springdoc:
+  packages-to-scan: br.com.sannicollas
+
+server:
+  port: 3000
+  servlet:
+    context-path: /api
+
+banner:
+  location: banner.txt
