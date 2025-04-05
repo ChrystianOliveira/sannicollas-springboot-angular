@@ -21,6 +21,8 @@ services:
       dockerfile: Dockerfile
     container_name: springboot
     image: chrystiandeoliveira/springboot-sannicollas
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg_sannicollas:5432/sannicollas
     networks:
       - sannicollas
     ports:

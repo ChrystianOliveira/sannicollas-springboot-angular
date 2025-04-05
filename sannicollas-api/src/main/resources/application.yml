@@ -7,7 +7,7 @@ spring:
   flyway:
     default-schema: sannicollas
   datasource:
-    url: jdbc:postgresql://pg_sannicollas:5432/sannicollas
+    url: jdbc:postgresql://localhost:5432/sannicollas
     username: postgres
     password: postgres
   h2:
